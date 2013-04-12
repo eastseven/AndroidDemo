@@ -8,9 +8,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_bar_bg_p"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/widget_bar_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_bar_set"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/widget_bar_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_bar_share"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/widget_bar_tweet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_bar_tweet"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
 
 </RelativeLayout>
