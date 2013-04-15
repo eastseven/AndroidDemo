@@ -12,11 +12,11 @@ import android.widget.ListView;
 
 public class MainActivity extends Activity {
 
-	private static final String tag = "Main";
+	private static final String tag = "D7_MainActivity";
 	
 	ListView listView;
 	
-	final String[] menus = new String[] {"GridView"};
+	String[] menus;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,12 @@ public class MainActivity extends Activity {
 		
 		Log.d(tag, "onCreate");
 		
+		this.menus = this.getResources().getStringArray(R.array.menus);
+		
 		this.listView = (ListView) findViewById(R.id.main_list_view);
 		this.listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menus));
 		this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String menu = menus[position];
@@ -36,6 +39,11 @@ public class MainActivity extends Activity {
 				case 0:
 					startActivity(new Intent(MainActivity.this, GridViewActivity.class));
 					break;
+				case 1:
+					startActivity(new Intent(MainActivity.this, SQLiteActivity.class));
+					break;
+				case 2:
+					startActivity(new Intent(view.getContext(), ActionBarActivity.class));
 				default:
 					break;
 				}

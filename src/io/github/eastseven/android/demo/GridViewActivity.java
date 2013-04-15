@@ -6,11 +6,14 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
 public class GridViewActivity extends Activity {
 
+	private static final String tag = "D7_GridViewActivity";
+	
 	GridView gridView;
 	ListAdapter adapter;
 	
@@ -18,9 +21,8 @@ public class GridViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grid_view);
-		
+		Log.d(tag, "onCreate");
 		this.gridView = (GridView) findViewById(R.id.main_grid_view);
-		//this.gridView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_gallery_item, new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
 		this.adapter = new GridImageViewAdapter(this, 0, getImageIds());
 		this.gridView.setAdapter(adapter);
 	}

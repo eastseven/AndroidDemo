@@ -5,6 +5,7 @@ import io.github.eastseven.android.demo.R;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,14 @@ import android.widget.ImageButton;
 
 public class GridImageViewAdapter extends ArrayAdapter<Integer> {
 
+	private static final String tag = "D7_GridImageViewAdapter";
+	
 	ArrayList<Integer> imageViewIds;
 
 	public GridImageViewAdapter(Context context, int textViewResourceId, ArrayList<Integer> objects) {
 		super(context, textViewResourceId, objects);
 		this.imageViewIds = objects;
+		Log.d(tag, "GridImageViewAdapter");
 	}
 	
 	@Override
