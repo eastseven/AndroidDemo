@@ -5,6 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/**
+ * SQLite3 数据类型包括：Integer, Real, Text, Blob, Numeric
+ * @author eastseven
+ *
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String tag = "D7_DatabaseHelper";
@@ -12,8 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_NAME = "d7"; 
 	
-	private static final String DB_TNAME_DATA_TYPE = "sqlite_data_type";
-	private static final String DB_TABLE_DATA_TYPE = "create table " + DB_TNAME_DATA_TYPE + " (n_int integer, n_real real, n_text text, n_blob blob, n_bool integer, n_numeric numeric)";
+	private static final String DB_TNAME_USER = "sqlite_user";
+	private static final String DB_TABLE_USER = "create table " + DB_TNAME_USER + " (username text, password text, updatetime text)";
 	
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -21,13 +26,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		Log.d(tag, DB_TABLE_DATA_TYPE);
-		db.execSQL(DB_TABLE_DATA_TYPE);
+		db.execSQL(DB_TABLE_USER);
+		Log.d(tag, DB_TABLE_USER);
+		Log.d(tag, "数据库创建完毕。。。");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+		db.execSQL("drop table "+DB_TNAME_USER);
+		db.execSQL(DB_TABLE_USER);
+		Log.d(tag, "数据库更新完毕。。。");
 	}
 
+	void create() {
+		
+	}
+	
+	Object read() {
+		return null; 
+	}
+	
+	void update() {}
+	
+	void delete() {}
 }

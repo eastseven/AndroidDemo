@@ -7,11 +7,13 @@
 
     <string-array name="menus">
         <item>GridView</item>
-        <item>SQLite</item>
+        <item>CRUD with SQLite</item>
         <item>ActionBar</item>
     </string-array>
 
-    <string name="title_activity_sqlite">SQLite</string>
+    <string name="title_activity_sqlite">CRUD</string>
     <string name="title_activity_action_bar">ActionBar</string>
+    <string name="title_activity_sqlite_form">SQLiteForm</string>
 
+    <string name="submit">提交</string>
 </resources>
