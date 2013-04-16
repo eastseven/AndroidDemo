@@ -35,6 +35,7 @@
         </activity>
         <activity
             android:name="io.github.eastseven.android.demo.SQLiteFormActivity"
+            android:label="@string/title_activity_sqlite_form"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         

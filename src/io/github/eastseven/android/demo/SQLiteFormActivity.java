@@ -1,5 +1,6 @@
 package io.github.eastseven.android.demo;
 
+import io.github.eastseven.android.demo.database.DatabaseHelper;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SQLiteFormActivity extends Activity implements OnClickListener {
 
@@ -18,6 +20,8 @@ public class SQLiteFormActivity extends Activity implements OnClickListener {
 
 	EditText username, password;
 	Button submit;
+	
+	DatabaseHelper dao;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class SQLiteFormActivity extends Activity implements OnClickListener {
 		this.password = (EditText) findViewById(R.id.sqlite_password);
 		this.submit   = (Button)   findViewById(R.id.sqlite_submit);
 		this.submit.setOnClickListener(this);
+		
+		this.dao = new DatabaseHelper(getApplication());
 	}
 
 	@Override
@@ -69,6 +75,15 @@ public class SQLiteFormActivity extends Activity implements OnClickListener {
 			return;
 		}
 		Log.d(tag, "username="+_username+", password="+_password);
+		
+		try {
+			
+			this.dao.create(_username, _password);
+			startActivity(new Intent(this, SQLiteActivity.class));
+		} catch (Exception e) {
+			e.printStackTrace();
+			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+		}
 		
 	}
 }

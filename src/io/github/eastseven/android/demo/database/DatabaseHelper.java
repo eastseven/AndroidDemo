@@ -1,5 +1,6 @@
 package io.github.eastseven.android.demo.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,11 +15,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String tag = "D7_DatabaseHelper";
 	
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 7;
 	private static final String DATABASE_NAME = "d7"; 
 	
-	private static final String DB_TNAME_USER = "sqlite_user";
-	private static final String DB_TABLE_USER = "create table " + DB_TNAME_USER + " (username text, password text, updatetime text)";
+	private static final String DB_TNAME_USER = "d7_sqlite_user";
+	private static final String DB_TABLE_USER = "create table " + DB_TNAME_USER + " (_id integer primary key autoincrement, username text, password text, updatetime TIMESTAMP default (datetime('now', 'localtime')) );";
 	
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,15 +39,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		Log.d(tag, "数据库更新完毕。。。");
 	}
 
-	void create() {
+	public void create(String username, String password) throws Exception {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put("username", username);
+		values.put("password", password);
+		long count = db.insert(DB_TNAME_USER, null, values);
+		db.close();
 		
+		Log.d(tag, "写入记录数："+count);
 	}
 	
-	Object read() {
+	public Object read() {
 		return null; 
 	}
 	
-	void update() {}
+	public void update() {}
 	
-	void delete() {}
+	public void delete() {}
 }
