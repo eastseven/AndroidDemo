@@ -38,6 +38,9 @@
             android:label="@string/title_activity_sqlite_form"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
+        
+        <activity android:name=".effectivenavigation.MainActivity"/>
+        <activity android:name=".CollectionDemoActivity" android:label="@string/demo_collection" />
     </application>
 
 </manifest>

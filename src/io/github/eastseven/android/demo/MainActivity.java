@@ -44,6 +44,8 @@ public class MainActivity extends Activity {
 					break;
 				case 2:
 					startActivity(new Intent(view.getContext(), ActionBarActivity.class));
+				case 3:
+					startActivity(new Intent(view.getContext(), io.github.eastseven.android.demo.effectivenavigation.MainActivity.class));
 				default:
 					break;
 				}
