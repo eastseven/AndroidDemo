@@ -48,6 +48,9 @@ public class MainActivity extends Activity {
 				case 3:
 					startActivity(new Intent(view.getContext(), io.github.eastseven.android.demo.effectivenavigation.MainActivity.class));
 					break;
+				case 4:
+					startActivity(new Intent(view.getContext(), ColorsActivity.class));
+					break;
 				default:
 					break;
 				}

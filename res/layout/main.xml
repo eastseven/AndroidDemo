@@ -11,13 +11,14 @@
     <RelativeLayout
         android:id="@+id/main_header_layout"
         android:layout_width="fill_parent"
-        android:layout_height="48dp"
-        android:background="#CCCCCC"
+        android:layout_height="wrap_content"
         android:gravity="center" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
 
             <TextView
                 android:layout_width="fill_parent"

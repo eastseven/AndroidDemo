@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/colors_a0"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/a0"
+        android:gravity="center"
+        android:text="A0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a1"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a1"
+        android:gravity="center"
+        android:text="A1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a2"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a2"
+        android:gravity="center"
+        android:text="A2"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a3"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a3"
+        android:gravity="center"
+        android:text="A3"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a4"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a4"
+        android:gravity="center"
+        android:text="A4"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a5"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a5"
+        android:gravity="center"
+        android:text="A5"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a6"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a6"
+        android:gravity="center"
+        android:text="A6"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a7"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a7"
+        android:gravity="center"
+        android:text="A7"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a8"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a8"
+        android:gravity="center"
+        android:text="A8"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colors_a9"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/a9"
+        android:gravity="center"
+        android:text="A9"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</LinearLayout>
