@@ -1,6 +1,7 @@
 package io.github.eastseven.android.demo;
 
 import io.github.eastseven.android.demo.service.RabbitmqService;
+import io.github.eastseven.android.demo.service.AlarmService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,6 +55,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	void initListView() {
 		this.menus = this.getResources().getStringArray(R.array.menus);
 		
+		this.setListView();
+		
+		//sendBroadcast(new Intent("io.github.eastseven.android.demo"));
+		
+		startService(new Intent(this, AlarmService.class));
+	}
+
+	void setListView() {
 		this.listView = (ListView) findViewById(R.id.main_list_view);
 		this.listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menus));
 		this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,5 +93,4 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 		});
 	}
-
 }
