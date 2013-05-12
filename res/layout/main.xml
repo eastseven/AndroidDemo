@@ -15,15 +15,22 @@
         android:gravity="center" >
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="horizontal" >
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hello_world" />
+
+            <Button
+                android:id="@+id/main_restart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="restart" />
         </LinearLayout>
     </RelativeLayout>
 
