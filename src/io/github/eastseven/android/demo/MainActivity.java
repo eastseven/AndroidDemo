@@ -36,7 +36,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.restart = (Button) findViewById(R.id.main_restart);
 		this.restart.setOnClickListener(this);
 		
-		startService(new Intent(this, RabbitmqService.class));
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.setListView();
 		
 		//sendBroadcast(new Intent("io.github.eastseven.android.demo"));
-		
+		startService(new Intent(this, RabbitmqService.class));
 		startService(new Intent(this, AlarmService.class));
 	}
 
