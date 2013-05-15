@@ -1,7 +1,13 @@
 package io.github.eastseven.android.demo;
 
-import io.github.eastseven.android.demo.service.RabbitmqService;
-import io.github.eastseven.android.demo.service.AlarmService;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.Socket;
+import java.net.URL;
+import java.net.UnknownHostException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	String[] menus;
 	
-	Button restart;
+	Button requestButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +39,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		this.initListView();
 		
-		this.restart = (Button) findViewById(R.id.main_restart);
-		this.restart.setOnClickListener(this);
+		this.requestButton = (Button) findViewById(R.id.main_request);
+		this.requestButton.setOnClickListener(this);
 		
 	}
 
@@ -46,9 +52,50 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		/*
 		Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());  
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
 		startActivity(i);
+		*/
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					
+					
+					URL url = new URL("http://eastseven.iicp.net:1337");
+					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+					Log.d(tag, "conn.id=" + conn);
+					BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+					String line = null;
+					while((line = reader.readLine()) != null) {
+						Log.d(tag, line);
+					}
+					
+					reader.close();
+					//conn.disconnect();
+					Log.d(tag, "conn disconnect...");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				try {
+					Socket socket = new Socket("eastseven.iicp.net", 1338);
+					BufferedReader r = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+					String l = null;
+					
+					while((l = r.readLine()) != null) {
+						Log.d(tag, "TCP: " + l);
+					}
+					
+					socket.close();
+				} catch (UnknownHostException e1) {
+					e1.printStackTrace();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
+		}).start();
 	}
 	
 	void initListView() {
@@ -57,8 +104,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.setListView();
 		
 		//sendBroadcast(new Intent("io.github.eastseven.android.demo"));
-		startService(new Intent(this, RabbitmqService.class));
-		startService(new Intent(this, AlarmService.class));
+		//startService(new Intent(this, RabbitmqService.class));
+		//startService(new Intent(this, AlarmService.class));
 	}
 
 	void setListView() {

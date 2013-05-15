@@ -21,6 +21,7 @@
         <service android:name=".service.RabbitmqService"/>
         
         <receiver
+            android:enabled="false"
             android:name=".receiver.AlarmRecevier"
             android:exported="false" >
             <intent-filter>
@@ -28,8 +29,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="io.github.eastseven.android.demo.service.AlarmService" >
-        </service>
+        <service android:name="io.github.eastseven.android.demo.service.AlarmService" android:enabled="false"/>
 
         <activity
             android:name="io.github.eastseven.android.demo.MainActivity"
