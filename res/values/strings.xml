@@ -11,6 +11,7 @@
         <item>ActionBar</item>
         <item>EffectiveNavigation</item>
         <item>Colors</item>
+        <item>TelephonyManager</item>
     </string-array>
 
     <string name="title_activity_sqlite">SQLite</string>

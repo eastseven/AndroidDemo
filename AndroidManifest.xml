@@ -5,11 +5,11 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="17"
         android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     
     <application
         android:name="io.github.eastseven.android.demo.EastSevenApplication"
@@ -56,10 +56,9 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity android:name=".effectivenavigation.MainActivity" />
-        <activity
-            android:name=".CollectionDemoActivity"
-            android:label="@string/demo_collection" />
+        <activity android:name=".effectivenavigation.CollectionDemoActivity" android:label="@string/demo_collection" />
         <activity android:name=".ColorsActivity" />
+        <activity android:name=".TelephonyActivity" />
     </application>
 
 </manifest>

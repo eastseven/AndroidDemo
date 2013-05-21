@@ -133,6 +133,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				case 4:
 					startActivity(new Intent(view.getContext(), ColorsActivity.class));
 					break;
+                case 5:
+                    startActivity(new Intent(view.getContext(), TelephonyActivity.class));
+                    break;
 				default:
 					break;
 				}
